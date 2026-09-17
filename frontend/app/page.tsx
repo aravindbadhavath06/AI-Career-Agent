@@ -11,28 +11,49 @@ const features = [
   },
   {
     number: "02",
-    title: "Career Matching",
+    title: "Opportunity Matching",
     description:
-      "Discover career paths that match your current profile and strengths.",
+      "Discover relevant private jobs, government jobs, and internships based on your profile.",
   },
   {
     number: "03",
     title: "Skill Gap Analysis",
     description:
-      "Identify the skills you need to develop for your target career.",
+      "Compare your current skills with opportunity requirements and identify what you need to learn.",
   },
   {
     number: "04",
-    title: "Personal Roadmap",
+    title: "Personalized Roadmap",
     description:
-      "Get a practical learning roadmap with projects, resources, and opportunities.",
+      "Get a practical roadmap with learning resources, projects, and steps toward your target opportunity.",
+  },
+];
+
+const opportunities = [
+  {
+    icon: "💼",
+    title: "Private Jobs",
+    description:
+      "Discover relevant roles and understand the skills employers are looking for.",
+  },
+  {
+    icon: "🏛️",
+    title: "Government Jobs",
+    description:
+      "Explore recruitment opportunities, eligibility, exams, and preparation requirements.",
+  },
+  {
+    icon: "🎓",
+    title: "Internships",
+    description:
+      "Find internships that align with your education, skills, and career goals.",
   },
 ];
 
 const steps = [
-  "Build your profile",
-  "AI analyzes your skills",
-  "Find your best career match",
+  "Build your student profile",
+  "Nexora analyzes your skills",
+  "Discover relevant opportunities",
   "Get your personalized roadmap",
 ];
 
@@ -46,20 +67,24 @@ export default function Home() {
         transition={{ duration: 0.6 }}
         className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8"
       >
+        {/* Logo */}
         <div className="flex items-center gap-3">
           <motion.div
             whileHover={{ rotate: 8, scale: 1.08 }}
             transition={{ duration: 0.2 }}
             className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-400 font-black text-[#07111f]"
           >
-            AI
+            NX
           </motion.div>
 
-          <span className="text-xl font-bold tracking-tight">
-            Career Agent
-          </span>
+          <div>
+            <span className="text-xl font-bold tracking-tight">
+              Agent Nexora
+            </span>
+          </div>
         </div>
 
+        {/* Navigation */}
         <div className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
           <a
             href="#features"
@@ -76,15 +101,16 @@ export default function Home() {
           </a>
 
           <a
-            href="#about"
+            href="#opportunities"
             className="transition duration-300 hover:text-white"
           >
-            About
+            Opportunities
           </a>
         </div>
 
+        {/* Get Started */}
         <motion.a
-          href="/profile"
+          href="/signup"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#07111f] transition duration-300 hover:bg-cyan-300"
@@ -132,23 +158,23 @@ export default function Home() {
                 className="h-2 w-2 rounded-full bg-cyan-400"
               />
 
-              AI-powered career guidance
+              AI-powered career & opportunity agent
             </motion.div>
 
             {/* Heading */}
             <h1 className="max-w-3xl text-5xl font-black leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-              Turn your skills into your
+              Navigate
               <motion.span
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{
-                  delay: 0.4,
+                  delay: 0.35,
                   duration: 0.7,
                 }}
                 className="inline-block text-cyan-400"
               >
                 {" "}
-                career path.
+                Your Next.
               </motion.span>
             </h1>
 
@@ -162,10 +188,33 @@ export default function Home() {
               }}
               className="mt-7 max-w-xl text-lg leading-8 text-slate-400"
             >
-              AI Career Agent analyzes your profile, matches you with suitable
-              careers, identifies your skill gaps, and creates a personalized
-              roadmap to help you move forward.
+              Agent Nexora understands your profile, discovers relevant
+              opportunities, identifies your skill gaps, finds learning
+              resources, and builds a personalized roadmap for your next
+              career move.
             </motion.p>
+
+            {/* Opportunity Types */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.6,
+                duration: 0.7,
+              }}
+              className="mt-6 flex flex-wrap gap-3"
+            >
+              {["Private Jobs", "Government Jobs", "Internships"].map(
+                (item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-slate-700 bg-slate-900/70 px-4 py-2 text-sm text-slate-300"
+                  >
+                    {item}
+                  </span>
+                )
+              )}
+            </motion.div>
 
             {/* Buttons */}
             <motion.div
@@ -178,7 +227,7 @@ export default function Home() {
               className="mt-9 flex flex-col gap-4 sm:flex-row"
             >
               <motion.a
-                href="/profile"
+                href="/signup"
                 whileHover={{
                   scale: 1.05,
                   boxShadow: "0 0 30px rgba(34,211,238,0.25)",
@@ -186,7 +235,7 @@ export default function Home() {
                 whileTap={{ scale: 0.95 }}
                 className="rounded-full bg-cyan-400 px-7 py-3.5 text-center font-bold text-[#07111f] transition duration-300 hover:bg-cyan-300"
               >
-                Analyze My Career →
+                Start with Nexora →
               </motion.a>
 
               <motion.a
@@ -219,15 +268,15 @@ export default function Home() {
               }}
               className="rounded-3xl border border-slate-800 bg-slate-900/80 p-5 shadow-2xl shadow-cyan-950/30 backdrop-blur"
             >
-              {/* Career Match */}
+              {/* Nexora Analysis Preview */}
               <div className="mb-5 flex items-center justify-between">
                 <div>
                   <p className="text-sm text-slate-400">
-                    Your career match
+                    Nexora career analysis
                   </p>
 
                   <h2 className="mt-1 text-2xl font-bold">
-                    Data Scientist
+                    AI Career Guidance
                   </h2>
                 </div>
 
@@ -238,14 +287,16 @@ export default function Home() {
                     delay: 1,
                     duration: 0.7,
                   }}
-                  className="flex h-20 w-20 items-center justify-center rounded-full border-4 border-cyan-400 text-xl font-black text-cyan-300"
+                  className="flex h-20 w-20 items-center justify-center rounded-full border-4 border-cyan-400 text-center text-xs font-bold text-cyan-300"
                 >
-                  88%
+                  AI
+                  <br />
+                  ANALYSIS
                 </motion.div>
               </div>
 
               <div className="space-y-3">
-                {/* Profile Strength */}
+                {/* Profile Analysis */}
                 <motion.div
                   initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -254,28 +305,30 @@ export default function Home() {
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-semibold">
-                      Profile strength
+                      Profile Analysis
                     </span>
 
                     <span className="text-sm text-cyan-300">
-                      Strong
+                      AI Powered
                     </span>
                   </div>
 
-                  <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-800">
-                    <motion.div
-                      initial={{ width: "0%" }}
-                      animate={{ width: "82%" }}
-                      transition={{
-                        delay: 1.3,
-                        duration: 1.2,
-                      }}
-                      className="h-full rounded-full bg-cyan-400"
-                    />
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    <span className="rounded-full bg-cyan-400/10 px-3 py-1 text-xs text-cyan-300">
+                      Skills
+                    </span>
+
+                    <span className="rounded-full bg-cyan-400/10 px-3 py-1 text-xs text-cyan-300">
+                      Interests
+                    </span>
+
+                    <span className="rounded-full bg-cyan-400/10 px-3 py-1 text-xs text-cyan-300">
+                      Career Goals
+                    </span>
                   </div>
                 </motion.div>
 
-                {/* Skill Gaps */}
+                {/* Opportunity Matching */}
                 <motion.div
                   initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -283,34 +336,30 @@ export default function Home() {
                   className="rounded-2xl border border-slate-800 bg-[#07111f] p-4"
                 >
                   <p className="mb-3 text-sm font-semibold">
-                    Skill gaps
+                    Opportunity Matching
                   </p>
 
-                  <div className="flex flex-wrap gap-2">
-                    <motion.span
-                      whileHover={{ scale: 1.08 }}
-                      className="rounded-full bg-red-400/10 px-3 py-1 text-xs text-red-300"
-                    >
-                      Statistics
-                    </motion.span>
+                  <div className="space-y-2">
+                    {[
+                      "Private Jobs",
+                      "Government Jobs",
+                      "Internships",
+                    ].map((item) => (
+                      <div
+                        key={item}
+                        className="flex items-center gap-3 text-sm text-slate-300"
+                      >
+                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-400/10 text-xs text-cyan-300">
+                          ✓
+                        </span>
 
-                    <motion.span
-                      whileHover={{ scale: 1.08 }}
-                      className="rounded-full bg-amber-400/10 px-3 py-1 text-xs text-amber-300"
-                    >
-                      Data Visualization
-                    </motion.span>
-
-                    <motion.span
-                      whileHover={{ scale: 1.08 }}
-                      className="rounded-full bg-amber-400/10 px-3 py-1 text-xs text-amber-300"
-                    >
-                      Advanced ML
-                    </motion.span>
+                        {item}
+                      </div>
+                    ))}
                   </div>
                 </motion.div>
 
-                {/* Roadmap */}
+                {/* Skill Gap */}
                 <motion.div
                   initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -318,21 +367,47 @@ export default function Home() {
                   className="rounded-2xl border border-slate-800 bg-[#07111f] p-4"
                 >
                   <p className="mb-3 text-sm font-semibold">
-                    Personalized roadmap
+                    Skill Gap Analysis
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    <span className="rounded-full bg-cyan-400/10 px-3 py-1 text-xs text-cyan-300">
+                      Current Skills
+                    </span>
+
+                    <span className="rounded-full bg-cyan-400/10 px-3 py-1 text-xs text-cyan-300">
+                      Required Skills
+                    </span>
+
+                    <span className="rounded-full bg-cyan-400/10 px-3 py-1 text-xs text-cyan-300">
+                      Learning Needs
+                    </span>
+                  </div>
+                </motion.div>
+
+                {/* Roadmap */}
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1.7 }}
+                  className="rounded-2xl border border-slate-800 bg-[#07111f] p-4"
+                >
+                  <p className="mb-3 text-sm font-semibold">
+                    Personalized Roadmap
                   </p>
 
                   <div className="space-y-3 text-sm text-slate-300">
                     {[
-                      "Learn Statistics",
-                      "Master Data Visualization",
-                      "Build ML Projects",
+                      "Identify your career direction",
+                      "Build required skills",
+                      "Explore opportunities",
                     ].map((item, index) => (
                       <motion.div
                         key={item}
                         initial={{ opacity: 0, x: 15 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{
-                          delay: 1.7 + index * 0.2,
+                          delay: 1.9 + index * 0.2,
                         }}
                         className="flex gap-3"
                       >
@@ -340,7 +415,7 @@ export default function Home() {
                           {String(index + 1).padStart(2, "0")}
                         </span>
 
-                        {item}
+                        <span>{item}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -351,9 +426,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features */}
+      {/* Opportunity Types */}
       <section
-        id="features"
+        id="opportunities"
         className="border-y border-slate-800/80 bg-[#091522]"
       >
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
@@ -365,16 +440,76 @@ export default function Home() {
             className="max-w-2xl"
           >
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-400">
-              What the agent does
+              Explore opportunities
             </p>
 
             <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
-              From profile to career roadmap.
+              One agent.
+              <br />
+              Multiple opportunities.
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-400">
-              The agent connects your current abilities with the skills,
-              careers, projects, and resources that can move you forward.
+              Nexora helps you explore different paths based on your profile,
+              skills, interests, and goals.
+            </p>
+          </motion.div>
+
+          <div className="mt-14 grid gap-5 md:grid-cols-3">
+            {opportunities.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.12,
+                }}
+                whileHover={{
+                  y: -8,
+                  scale: 1.02,
+                }}
+                className="rounded-3xl border border-slate-800 bg-[#07111f] p-7 transition duration-300 hover:border-cyan-400/40 hover:shadow-lg hover:shadow-cyan-950/20"
+              >
+                <div className="text-3xl">{item.icon}</div>
+
+                <h3 className="mt-6 text-xl font-bold">{item.title}</h3>
+
+                <p className="mt-3 text-sm leading-6 text-slate-400">
+                  {item.description}
+                </p>
+
+                <div className="mt-6 text-sm font-semibold text-cyan-400">
+                  Explore with Nexora →
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section id="features">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="max-w-2xl"
+          >
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-400">
+              What Nexora does
+            </p>
+
+            <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
+              From profile to opportunity.
+            </h2>
+
+            <p className="mt-5 text-lg leading-8 text-slate-400">
+              Nexora connects your current abilities with opportunities,
+              skills, resources, and actions that can help you move forward.
             </p>
           </motion.div>
 
@@ -438,8 +573,8 @@ export default function Home() {
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-400">
-              No random career suggestions. Your recommendations are based on
-              the information you provide about yourself.
+              Nexora uses your profile and goals to help you understand
+              opportunities and determine what to do next.
             </p>
           </motion.div>
 
@@ -477,7 +612,7 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section id="about" className="px-6 pb-24 lg:px-8">
+      <section className="px-6 pb-24 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -488,17 +623,18 @@ export default function Home() {
           <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
             <div className="max-w-2xl">
               <h2 className="text-3xl font-black tracking-tight text-[#07111f] sm:text-4xl">
-                Ready to find your next career move?
+                Ready to navigate your next move?
               </h2>
 
               <p className="mt-3 text-[#07111f]/70">
-                Build your profile and let the AI Career Agent analyze where
-                your skills can take you.
+                Build your profile and let Agent Nexora help you discover
+                opportunities, understand your skill gaps, and plan your next
+                steps.
               </p>
             </div>
 
             <motion.a
-              href="/profile"
+              href="/signup"
               whileHover={{
                 scale: 1.05,
                 x: 3,
@@ -506,7 +642,7 @@ export default function Home() {
               whileTap={{ scale: 0.95 }}
               className="shrink-0 rounded-full bg-[#07111f] px-7 py-3.5 font-bold text-white transition duration-300 hover:bg-slate-900"
             >
-              Start Analysis →
+              Start with Nexora →
             </motion.a>
           </div>
         </motion.div>
@@ -515,9 +651,11 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-slate-800 px-6 py-8 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-3 text-sm text-slate-500 sm:flex-row">
-          <p>© 2026 AI Career Agent</p>
+          <p>© 2026 Agent Nexora</p>
 
-          <p>AI-powered career guidance for students</p>
+          <p>
+            Navigate Your Next. • AI-powered career & opportunity agent
+          </p>
         </div>
       </footer>
     </main>
